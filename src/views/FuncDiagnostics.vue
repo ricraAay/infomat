@@ -1,71 +1,35 @@
 <template>
-  <div class="functional-diagnosticks">
+  <div class="context">
 
-    <div class="functional-diagnosticks__head">
-      <div class="head">
-        <div class="head__title">
-          Отделение функциональной диагностики
-        </div>
-        <div class="head__subtitle">
-          В отделении функциональной диагностики проводятся исследования сердечно-сосудистой и нервной систем
-        </div>
+    <div class="context__head">
+
+      <div class="context__subtitle">
+        Отделение функциональной диагностики
+      </div>
+      <div class="context__title">
+        В отделении функциональной диагностики проводятся исследования сердечно-сосудистой и нервной систем
       </div>
 
-      <div class="functional-diagnosticks__context">
-        <div class="context">
 
-          <div class="context__additionally">
-            <div class="additionally">
-              <a @click="modal = true">Подготовка пациента к методикам в отделении функциональной диагностики</a>
-            </div>
-          </div>
+      <div class="context__information">
 
-          <ul class="context__list list">
-            <li 
-              v-for="(item, i) in listItems"
-              :key="i"
-              class="list__item"
-            >
-              <div class="list__title">
-                {{ item.title }}
-              </div>
-              <p class="list__description">
-                {{ item.description }}
-              </p>
-            </li>
-
-            <li class="list__item">
-              <div class="list__title">
-                Методики  вызванных потенциалов (ВП)  
-              </div>
-
-              <p class="list__description">
-                <ul class="list--second">
-                  <li>
-                    - позволяют выявить повреждение зрительных путей головного мозга на различных уровнях  
-                  </li>
-                  <li>
-                    -  метод зрительных вызванных  потенциалов ( ЗВП );
-                  </li>
-                  <li>
-                    - слуховых путей на центральном и периферическом уровне 
-                  </li>
-                  <li>
-                    – метод акустических стволовых потенциалов (АСВП); Метод эффективен для выявления поражения структур ствола головного мозга при различных патологических процессах (воспалительные заболевания, последствия ОНМК, ЧМТ).
-                  </li>
-                  <li>
-                    - нарушения чувствительных и двигательных путей нервной системы -  метод соматосенсорных вызванных потенциалов (ССВП).
-                  </li>
-                  <li>
-                    Все эти ВП методы   являются хорошей помощью в ранней диагностике такого грозного заболевания, как рассеянный склероз.
-                  </li>
-                </ul>
-              </p>
-
-            </li>
-          </ul>
-
+        <div class="paragraph">
+          <a>Подготовка пациента к методикам в отделении функциональной диагностики</a>
         </div>
+
+        <div 
+          class="paragraph" 
+          v-for="(item, i) in listItems"
+          :key="i"
+        >
+          <div class="paragraph__title">
+            {{ item.title }}
+          </div>
+          <div class="paragraph__description">
+            {{ item.description }}
+          </div>
+        </div>
+
       </div>
 
     </div>
@@ -73,8 +37,6 @@
 </template>
 
 <script>
-import Modal from '@/components/Modal'
-
 export default {
   name: 'FuncDiagnostics',
   data: () => ({
@@ -137,7 +99,7 @@ export default {
     ]
   }),
   components: {
-    Modal
+
   }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" @click="touchWindow">
     <component :is="loadingLayout">
       <router-view/>
     </component>
@@ -7,20 +7,26 @@
 </template>
 
 <script>
-import MainLayout from './layouts/MainLayout'
+import Layout from './layouts/Layout'
 
 export default {
   name: 'App',
-
+  data: () => ({
+    timer: 5
+  }),
   computed: {
     loadingLayout () {    
       return this.$route.meta.layout
     }
   },
-
   components: {
-    MainLayout
+    Layout
   },
+  methods: {
+    touchWindow () {
+
+    }
+  }
 
 };
 </script>

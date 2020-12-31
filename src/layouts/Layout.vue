@@ -1,18 +1,20 @@
 <template>
   <v-app id="inspire">
-    <v-main class="v-main blue-grey lighten-5">
+    <v-main 
+      class="main"
+      :class="{ main_active: active }"
+    >
       
       <v-row 
-        class="v-head"
-        :class="{'v-head_small': notMainPage}"
-        :style="{background: $route.meta.background}"
+        class="head"
+        :style="{ background: $route.meta.color }"
       >
-        <v-container class="v-container">
+        <v-container class="container">
           <v-row class="justify-space-between align-center pl-3 pr-3">
 
             <div 
-              class="v-head__title"
-              :class="{'v-head__title_small': notMainPage}"
+              class="head__title"
+              :class="{ head__title_active: active }"
             >
               <div>Консультативно - </div>
               <div>диагностический</div>
@@ -20,9 +22,9 @@
             </div>
 
             <button 
-              v-if="notMainPage"
+              v-if="active"
               @click="$router.push('/')"
-              class="btn"
+              class="bttn"
             >
               Меню
             </button>
@@ -32,7 +34,7 @@
 
       </v-row>
 
-      <v-container class="v-container">
+      <v-container class="container">
         <transition name="component-fade" mode="out-in">
           <router-view/>
         </transition>
@@ -45,37 +47,12 @@
 </template>
 
 <script>
-import '@/assets/head.scss'
-
 export default {
   name: 'Main',
   computed: {
-    notMainPage () {
-      return this.$route.meta.addClass
+    active () {
+      return this.$route.meta.active
     }
   }
 }
 </script>
-
-<style scoped>
-  
-  .btn {
-    background: #cacaca5d;
-    height: 40px;
-    padding: 10px 20px;
-    border-radius: 6px;
-    color: #fff;
-  }
-
-  .btn:focus {
-    outline: none;
-  }
-
-  .btn:active {
-    transform: scale(.9);
-    transition: .1s ease;
-  }
-
-  
-
-</style>

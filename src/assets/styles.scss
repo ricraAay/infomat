@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;700&display=swap');
 
+@import './variables.scss';
+@import './animation.scss';
+
 *,
 *::before,
 *::after {
@@ -8,66 +11,157 @@
   font-family: 'Comfortaa';
 }
 
-.v-container {
-  max-width: 1100px;
-}
+.main {
+  position: relative;
+  background: $background-primary;
+  transition: .5s ease;
 
-.head {
-  margin: 40px 0;
-
-  &__title {
-    font-size: 18px;
+  &_active {
+    background: $white;
+    transition: .5s ease;
   }
 
-  &__subtitle {
-    margin: 10px 0;
-    font-size: 36px;
+  .container {
+    max-width: 1200px;
   }
-}
+  
+  .head {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1;
 
-.context {
-  max-width: 700px;
+    &__title {
+      padding: 60px 0;
+      font-size: 36px;
+      font-weight: 500;
+      color: $white;
+      transition: .5s ease;
 
-  &__additionally {
-    .additionally {
-      padding: 10px 0 30px 0;
-      
-      a {
-        text-decoration: underline;
-        font-weight: bold;
+      &_active {
+        padding: 20px 0;
+        font-size: 18px;
+        transition: .5s ease;
       }
     }
   }
 
-  &__list, .list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    margin: 0 30px 30px 0;
+    width: calc(33.333% - 30px);
+    min-height: 290px;
+    padding: 30px;
+    border-radius: $radius;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: .4s ease;
+    cursor: pointer;
 
-    &--second {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+    &:nth-child(3n) {
+      margin: 0 0 30px 0;
     }
 
-    &__item {
-      margin-bottom: 20px;
+    &:active {
+      transform: scale(.9);
+      transition: .2s ease;
     }
+
+    &__text {
+      font-size: 23px;
+      color: $white;
+    }
+
+    &_pink {
+      background: $pink;
+    }
+    &_blue {
+      background: $blue;
+    }
+    &_green {
+      background: $green;
+    }
+    &_yellow {
+      background: $yellow;
+    }
+    &_purple {
+      background: $purple;
+    }
+    &_light-blue {
+      background: $light-blue;
+    }
+  }
+
+  .context {
+    margin: 70px 0;
 
     &__title {
-      font-weight: bold;
-      font-size: 18px;
+      font-weight: 300;
+      font-size: 36px;
+      line-height: 146.5%;
+      color: $text-primary;
+      padding: 10px 0 30px 0;
     }
 
-    &__description {
-      line-height: 180%;
+    &__subtitle {
+      font-size: 18px;
     }
+    
+
+    &__information {
+      max-width: 700px;
+
+      .paragraph {
+        margin-bottom: 20px;
+
+        a {
+          display: inline-block;
+          font-size: 24px;
+          text-decoration: underline;
+          padding-bottom: 20px;
+        }
+  
+        &__title {
+          font-size: 18px;
+          font-weight: bold;
+          color: $text-primary;
+        }
+
+        &__subtitle {
+          margin: 15px 0 5px 0;
+          font-size: 14px;
+          font-weight: normal;
+          color: $text-secondary;
+        }
+  
+        &__description {
+          color: $text-secondary;
+          line-height: 170%;
+          font-size: 18px;
+        }
+      }
+    }
+
   }
 }
 
-.component-fade-enter-active, .component-fade-leave-active {
-  transition: opacity .2s ease;
+.bttn {
+  background: #cacaca5d;
+  padding: 13px 26px;
+  border-radius: 6px;
+  color: #fff;
 }
-.component-fade-enter, .component-fade-leave-to {
-  opacity: 0;
+
+.bttn:focus {
+  outline: none;
 }
+
+.bttn:active {
+  transform: scale(.9);
+  transition: .1s ease;
+}
+
+
+
